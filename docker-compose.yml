@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Server Web + PHP
+  web:
+    image: php:8.1-apache
+    container_name: ntm_web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=nelletuemani
+      - DB_USER=root
+      - DB_PASS=root
+    command: >
+      bash -c "docker-php-ext-install pdo pdo_mysql && 
+               apache2-foreground"
+
+  # Database MySQL
+  db:
+    image: mysql:8.0
+    container_name: ntm_db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nelletuemani
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin123
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - mysql_data:/var/lib/mysql
+
+  # phpMyAdmin (gestione database)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ntm_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+
+volumes:
+  mysql_data:

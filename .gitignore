@@ -31,3 +31,10 @@ vendor/
 # Uploads (se gestiti)
 uploads/
 assets/uploads/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Scripts locali (solo per dev)
+START_SERVER_LOCAL.sh
