@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Dashboard Admin | Nelle Tue Mani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e91e8c',
+                        primaryDark: '#c41873',
+                        gold: '#d4af37',
+                        darkGreen: '#1a3c27',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    
+    <!-- Login Page Preview -->
+    <div class="min-h-screen flex items-center justify-center p-4" style="background: linear-gradient(135deg, #1a3c27 0%, #0d1f15 100%);">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <img src="assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
+                     alt="Logo" 
+                     class="w-20 h-20 rounded-full border-4 border-primary mx-auto mb-4 shadow-lg">
+                <h1 class="font-serif text-3xl text-white font-bold">Nelle Tue Mani</h1>
+                <p class="text-gold">Area Riservata</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-2xl p-8">
+                <h2 class="font-serif text-2xl text-darkGreen font-bold mb-6 text-center">
+                    🔐 Login Admin
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input type="text" value="admin" readonly
+                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-50">
+                    </div>
+                    
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" value="********" readonly
+                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-50">
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white font-medium py-3 rounded-lg">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Accedi
+                    </button>
+                </div>
+                
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    <p><i class="fas fa-shield-alt mr-1"></i> Connessione sicura crittografata</p>
+                    <p class="mt-2 text-xs text-gray-400">CSRF Token | Rate Limiting | Sessioni HTTPOnly</p>
+                </div>
+            </div>
+            
+            <p class="text-center mt-6 text-white/60 text-sm">
+                ⚠️ In produzione: cambia password dopo primo accesso
+            </p>
+        </div>
+    </div>
+
+    <hr class="border-4 border-primary">
+
+    <!-- Dashboard Preview -->
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-darkGreen text-white min-h-screen p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <img src="assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
+                     class="w-12 h-12 rounded-full border-2 border-primary">
+                <div>
+                    <h1 class="font-serif font-bold">Nelle Tue Mani</h1>
+                    <p class="text-xs text-primary">Admin Panel</p>
+                </div>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center px-4 py-3 bg-primary/20 rounded-lg text-white">
+                    <i class="fas fa-calendar-alt w-6"></i>Prenotazioni
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 hover:bg-white/10 rounded-lg text-white/80">
+                    <i class="fas fa-clock w-6"></i>Gestione Orari
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 hover:bg-white/10 rounded-lg text-white/80">
+                    <i class="fas fa-history w-6"></i>Log Attività
+                </a>
+            </nav>
+            
+            <div class="mt-auto pt-8 border-t border-white/10">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-white/70">admin</span>
+                    <span class="text-red-400 text-sm"><i class="fas fa-sign-out-alt"></i> Esci</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-darkGreen">Dashboard Prenotazioni</h2>
+                    <p class="text-gray-500">Gestisci gli appuntamenti dei clienti</p>
+                </div>
+                <span class="bg-primary text-white px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-user-shield mr-2"></i>Admin
+                </span>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Totali</p>
+                            <p class="text-3xl font-bold text-darkGreen">24</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-calendar text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Nuove</p>
+                            <p class="text-3xl font-bold text-primary">5</p>
+                        </div>
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-bell text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Confermate</p>
+                            <p class="text-3xl font-bold text-gold">18</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check text-gold"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 text-sm">Oggi</p>
+                            <p class="text-3xl font-bold text-green-600">3</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-calendar-day text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="bg-white rounded-xl p-4 mb-6 shadow-sm">
+                <div class="flex flex-wrap gap-4">
+                    <select class="border rounded-lg px-3 py-2">
+                        <option>Tutte</option>
+                        <option>Nuove</option>
+                        <option>Confermate</option>
+                        <option>Completate</option>
+                        <option>Cancellate</option>
+                    </select>
+                    <input type="date" class="border rounded-lg px-3 py-2">
+                    <input type="date" class="border rounded-lg px-3 py-2">
+                    <button class="bg-darkGreen text-white px-4 py-2 rounded-lg">
+                        <i class="fas fa-filter mr-2"></i>Filtra
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Table -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-600">Data/Ora</th>
+                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-600">Cliente</th>
+                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-600">Servizio</th>
+                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-600">Stato</th>
+                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-600">Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3">
+                                <div class="font-medium">20/02/2025</div>
+                                <div class="text-sm text-gray-500">10:00</div>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="font-medium">Maria Rossi</div>
+                                <div class="text-sm text-gray-500"><i class="fas fa-phone mr-1"></i>333 1234567</div>
+                            </td>
+                            <td class="px-4 py-3">Ricostruzione Gel</td>
+                            <td class="px-4 py-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Nuova</span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-600"><i class="fas fa-check"></i></button>
+                                    <button class="text-red-600"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3">
+                                <div class="font-medium">21/02/2025</div>
+                                <div class="text-sm text-gray-500">15:30</div>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="font-medium">Anna Bianchi</div>
+                                <div class="text-sm text-gray-500"><i class="fas fa-phone mr-1"></i>347 9876543</div>
+                            </td>
+                            <td class="px-4 py-3">Nail Art</td>
+                            <td class="px-4 py-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Confermata</span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-600"><i class="fas fa-check"></i></button>
+                                    <button class="text-red-600"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-4 py-3">
+                                <div class="font-medium">22/02/2025</div>
+                                <div class="text-sm text-gray-500">09:30</div>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="font-medium">Laura Verdi</div>
+                                <div class="text-sm text-gray-500"><i class="fas fa-phone mr-1"></i>320 4567890</div>
+                            </td>
+                            <td class="px-4 py-3">Manicure</td>
+                            <td class="px-4 py-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Completata</span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600"><i class="fas fa-eye"></i></button>
+                                    <button class="text-green-600"><i class="fas fa-check"></i></button>
+                                    <button class="text-red-600"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Gestione Orari Preview -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-serif font-bold text-darkGreen mb-6">📅 Gestione Orari</h3>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <button class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <i class="fas fa-chevron-left mr-2"></i>Settimana precedente
+                        </button>
+                        <h4 class="text-xl font-bold text-darkGreen">17/02/2025 - 23/02/2025</h4>
+                        <button class="bg-white px-4 py-2 rounded-lg shadow-sm">
+                            Settimana successiva<i class="fas fa-chevron-right ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-7 gap-2 text-center">
+                        <div class="bg-gray-50 p-2 rounded">
+                            <div class="text-xs text-gray-500">Lunedì</div>
+                            <div class="font-bold">17/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">10:00 ✓</div>
+                                <div class="bg-red-100 text-red-700 text-xs py-1 rounded">10:30 🔒</div>
+                                <div class="bg-gray-200 text-gray-500 text-xs py-1 rounded">11:00 ✗</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-2 rounded">
+                            <div class="text-xs text-gray-500">Martedì</div>
+                            <div class="font-bold">18/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">10:00 ✓</div>
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">10:30 ✓</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-2 rounded">
+                            <div class="text-xs text-gray-500">Mercoledì</div>
+                            <div class="font-bold">19/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                                <div class="bg-red-100 text-red-700 text-xs py-1 rounded">10:00 🔒</div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 p-2 rounded border-2 border-primary">
+                            <div class="text-xs text-primary">Giovedì</div>
+                            <div class="font-bold text-primary">20/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">10:00 ✓</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-2 rounded">
+                            <div class="text-xs text-gray-500">Venerdì</div>
+                            <div class="font-bold">21/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-2 rounded">
+                            <div class="text-xs text-gray-500">Sabato</div>
+                            <div class="font-bold">22/02</div>
+                            <div class="mt-2 space-y-1">
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">09:30 ✓</div>
+                                <div class="bg-green-100 text-green-700 text-xs py-1 rounded">10:00 ✓</div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 p-2 rounded">
+                            <div class="text-xs text-gray-500">Domenica</div>
+                            <div class="font-bold text-gray-400">23/02</div>
+                            <div class="mt-2 text-xs text-gray-400 py-4">CHIUSO</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex gap-6 text-sm">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-green-100 rounded mr-2"></div>
+                            <span>Disponibile</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-gray-200 rounded mr-2"></div>
+                            <span>Chiuso</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-red-100 rounded mr-2"></div>
+                            <span>Prenotato</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="fixed bottom-4 right-4 bg-darkGreen text-white p-4 rounded-xl shadow-lg max-w-sm">
+        <h5 class="font-bold mb-2"><i class="fas fa-info-circle mr-2"></i>Per testare la dashboard:</h5>
+        <ol class="text-sm space-y-1 list-decimal list-inside">
+            <li>Installa PHP sul tuo computer</li>
+            <li>Configura MySQL (XAMPP/Laragon)</li>
+            <li>Importa <code>database/schema.sql</code></li>
+            <li>Configura <code>config.php</code></li>
+            <li>Avvia: <code>php -S localhost:8000</code></li>
+            <li>Vai a: <code>localhost:8000/admin</code></li>
+        </ol>
+        <p class="mt-2 text-xs text-gold">Leggi ADMIN_SETUP.md per dettagli</p>
+    </div>
+    
+</body>
+</html>

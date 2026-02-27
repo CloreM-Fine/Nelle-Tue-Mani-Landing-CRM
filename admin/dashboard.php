@@ -115,8 +115,8 @@ $csrfToken = $auth->generateCSRFToken();
 </head>
 <body class="bg-gray-100 font-sans">
     
-    <!-- Sidebar -->
-    <aside class="fixed left-0 top-0 h-full w-64 bg-darkGreen text-white z-50">
+    <!-- Desktop Sidebar -->
+    <aside class="hidden md:block fixed left-0 top-0 h-full w-64 bg-darkGreen text-white z-50">
         <div class="p-6">
             <div class="flex items-center space-x-3 mb-8">
                 <img src="../assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
@@ -150,8 +150,11 @@ $csrfToken = $auth->generateCSRFToken();
         </div>
     </aside>
     
+    <!-- Mobile Navigation -->
+    <?php include __DIR__ . '/includes/mobile-nav.php'; ?>
+    
     <!-- Main Content -->
-    <main class="ml-64 p-8">
+    <main class="md:ml-64 p-4 md:p-8">
         <!-- Header -->
         <div class="flex justify-between items-center mb-8">
             <div>
@@ -170,51 +173,51 @@ $csrfToken = $auth->generateCSRFToken();
         <?php endif; ?>
         
         <!-- Stats Cards -->
-        <div class="grid grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-xl p-6 shadow-sm">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
+            <div class="bg-white rounded-xl p-4 md:p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500 text-sm">Totali</p>
-                        <p class="text-3xl font-bold text-darkGreen"><?php echo $stats['total']; ?></p>
+                        <p class="text-gray-500 text-xs md:text-sm">Totali</p>
+                        <p class="text-xl md:text-3xl font-bold text-darkGreen"><?php echo $stats['total']; ?></p>
                     </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-calendar text-blue-600"></i>
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-calendar text-blue-600 text-sm md:text-base"></i>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="bg-white rounded-xl p-4 md:p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500 text-sm">Nuove</p>
-                        <p class="text-3xl font-bold text-primary"><?php echo $stats['nuove']; ?></p>
+                        <p class="text-gray-500 text-xs md:text-sm">Nuove</p>
+                        <p class="text-xl md:text-3xl font-bold text-primary"><?php echo $stats['nuove']; ?></p>
                     </div>
-                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-bell text-primary"></i>
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-pink-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-bell text-primary text-sm md:text-base"></i>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="bg-white rounded-xl p-4 md:p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500 text-sm">Confermate</p>
-                        <p class="text-3xl font-bold text-gold"><?php echo $stats['confermate']; ?></p>
+                        <p class="text-gray-500 text-xs md:text-sm">Confermate</p>
+                        <p class="text-xl md:text-3xl font-bold text-gold"><?php echo $stats['confermate']; ?></p>
                     </div>
-                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-check text-gold"></i>
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-check text-gold text-sm md:text-base"></i>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="bg-white rounded-xl p-4 md:p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500 text-sm">Oggi</p>
-                        <p class="text-3xl font-bold text-green-600"><?php echo $stats['oggi']; ?></p>
+                        <p class="text-gray-500 text-xs md:text-sm">Oggi</p>
+                        <p class="text-xl md:text-3xl font-bold text-green-600"><?php echo $stats['oggi']; ?></p>
                     </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-calendar-day text-green-600"></i>
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-calendar-day text-green-600 text-sm md:text-base"></i>
                     </div>
                 </div>
             </div>
@@ -222,7 +225,7 @@ $csrfToken = $auth->generateCSRFToken();
         
         <!-- Filters -->
         <div class="bg-white rounded-xl p-4 mb-6 shadow-sm">
-            <form method="GET" class="flex flex-wrap gap-4 items-end">
+            <form method="GET" class="flex flex-col md:flex-row flex-wrap gap-3 md:gap-4 md:items-end">
                 <div>
                     <label class="block text-sm text-gray-600 mb-1">Stato</label>
                     <select name="stato" class="border rounded-lg px-3 py-2">
@@ -248,8 +251,8 @@ $csrfToken = $auth->generateCSRFToken();
             </form>
         </div>
         
-        <!-- Table -->
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <!-- Table Desktop -->
+        <div class="hidden md:block bg-white rounded-xl shadow-sm overflow-hidden">
             <table class="w-full">
                 <thead class="bg-gray-50">
                     <tr>
@@ -359,11 +362,113 @@ $csrfToken = $auth->generateCSRFToken();
                 </tbody>
             </table>
         </div>
+        
+        <!-- Mobile Cards -->
+        <div class="md:hidden space-y-3">
+            <?php foreach ($prenotazioni as $p): 
+                $statoColors = [
+                    'nuova' => 'bg-blue-100 text-blue-800 border-blue-200',
+                    'confermata' => 'bg-green-100 text-green-800 border-green-200',
+                    'completata' => 'bg-gray-100 text-gray-800 border-gray-200',
+                    'cancellata' => 'bg-red-100 text-red-800 border-red-200'
+                ];
+            ?>
+            <div class="bg-white rounded-xl shadow-sm p-4 border-l-4 <?php echo str_replace(['bg-', 'text-'], '', explode(' ', $statoColors[$p['stato']])[2]); ?>">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <div class="font-bold text-lg"><?php echo date('d/m/Y', strtotime($p['data_preferita'])); ?></div>
+                        <div class="text-primary font-medium"><?php echo substr($p['ora_preferita'], 0, 5); ?></div>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-medium <?php echo $statoColors[$p['stato']]; ?>">
+                        <?php echo ucfirst($p['stato']); ?>
+                    </span>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="font-medium text-darkGreen"><?php echo htmlspecialchars($p['nome']); ?></div>
+                    <a href="tel:<?php echo $p['telefono']; ?>" class="text-sm text-gray-500 hover:text-primary">
+                        <i class="fas fa-phone mr-1"></i><?php echo $p['telefono']; ?>
+                    </a>
+                    <?php if ($p['email']): ?>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-envelope mr-1"></i><?php echo $p['email']; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                
+                <div class="text-sm text-gray-600 mb-3">
+                    <i class="fas fa-hand-sparkles mr-1 text-primary"></i>
+                    <?php echo ucfirst(str_replace('_', ' ', $p['servizio'])); ?>
+                </div>
+                
+                <!-- Mobile Actions -->
+                <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
+                    <button onclick="toggleDetailsMobile(<?php echo $p['id']; ?>)" 
+                            class="flex-1 bg-blue-50 text-blue-600 py-2 rounded-lg text-sm font-medium">
+                        <i class="fas fa-eye mr-1"></i>Dettagli
+                    </button>
+                    
+                    <form method="POST" class="flex-1" onsubmit="return confirm('Eliminare?');">
+                        <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
+                        <button type="submit" class="w-full bg-red-50 text-red-600 py-2 rounded-lg text-sm font-medium">
+                            <i class="fas fa-trash mr-1"></i>Elimina
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Mobile Status Change -->
+                <form method="POST" class="mt-2">
+                    <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                    <input type="hidden" name="action" value="update_status">
+                    <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
+                    <select name="stato" onchange="this.form.submit()" 
+                            class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 bg-gray-50">
+                        <option value="">Cambia stato...</option>
+                        <option value="nuova">Nuova</option>
+                        <option value="confermata">Confermata</option>
+                        <option value="completata">Completata</option>
+                        <option value="cancellata">Cancellata</option>
+                    </select>
+                </form>
+                
+                <!-- Hidden Details Mobile -->
+                <div id="details-mobile-<?php echo $p['id']; ?>" class="hidden mt-3 p-3 bg-gray-50 rounded-lg text-sm">
+                    <p class="mb-2"><strong>Note cliente:</strong><br><?php echo nl2br(htmlspecialchars($p['note'] ?: 'Nessuna nota')); ?></p>
+                    <p class="text-xs text-gray-500 mb-3">Richiesta il: <?php echo date('d/m/Y H:i', strtotime($p['data_creazione'])); ?></p>
+                    
+                    <form method="POST">
+                        <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
+                        <input type="hidden" name="action" value="add_note">
+                        <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
+                        <textarea name="admin_notes" placeholder="Note interne..." 
+                                  class="w-full border rounded-lg p-2 text-sm mb-2" rows="2"><?php echo htmlspecialchars($p['admin_notes'] ?? ''); ?></textarea>
+                        <button type="submit" class="w-full bg-darkGreen text-white py-2 rounded-lg text-sm">
+                            Salva nota
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <?php endforeach; ?>
+            
+            <?php if (empty($prenotazioni)): ?>
+            <div class="bg-white rounded-xl shadow-sm p-8 text-center text-gray-500">
+                <i class="fas fa-inbox text-4xl mb-2"></i>
+                <p>Nessuna prenotazione trovata</p>
+            </div>
+            <?php endif; ?>
+        </div>
     </main>
     
     <script>
         function toggleDetails(id) {
             const el = document.getElementById('details-' + id);
+            el.classList.toggle('hidden');
+        }
+        
+        function toggleDetailsMobile(id) {
+            const el = document.getElementById('details-mobile-' + id);
             el.classList.toggle('hidden');
         }
     </script>

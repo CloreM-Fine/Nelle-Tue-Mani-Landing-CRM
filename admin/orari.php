@@ -135,8 +135,8 @@ $csrfToken = $auth->generateCSRFToken();
 </head>
 <body class="bg-gray-100 font-sans">
     
-    <!-- Sidebar -->
-    <aside class="fixed left-0 top-0 h-full w-64 bg-darkGreen text-white z-50">
+    <!-- Desktop Sidebar -->
+    <aside class="hidden md:block fixed left-0 top-0 h-full w-64 bg-darkGreen text-white z-50">
         <div class="p-6">
             <div class="flex items-center space-x-3 mb-8">
                 <img src="../assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
@@ -170,8 +170,11 @@ $csrfToken = $auth->generateCSRFToken();
         </div>
     </aside>
     
+    <!-- Mobile Navigation -->
+    <?php include __DIR__ . '/includes/mobile-nav.php'; ?>
+    
     <!-- Main Content -->
-    <main class="ml-64 p-8">
+    <main class="md:ml-64 p-4 md:p-8">
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h2 class="text-3xl font-serif font-bold text-darkGreen">Gestione Orari</h2>
@@ -186,7 +189,7 @@ $csrfToken = $auth->generateCSRFToken();
         <?php endif; ?>
         
         <!-- Azioni Rapide -->
-        <div class="grid grid-cols-2 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8">
             <!-- Genera Slot -->
             <div class="bg-white rounded-xl p-6 shadow-sm">
                 <h3 class="font-bold text-darkGreen mb-4"><i class="fas fa-plus-circle mr-2"></i>Genera Slot Orari</h3>
@@ -249,8 +252,8 @@ $csrfToken = $auth->generateCSRFToken();
         </div>
         
         <!-- Calendario Settimanale -->
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="grid grid-cols-7 divide-x divide-gray-200">
+        <div class="bg-white rounded-xl shadow-sm overflow-x-auto md:overflow-visible">
+            <div class="grid grid-cols-7 divide-x divide-gray-200 min-w-[800px] md:min-w-0">
                 <?php 
                 $giorniSettimana = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
                 for ($i = 0; $i < 7; $i++): 
@@ -307,7 +310,7 @@ $csrfToken = $auth->generateCSRFToken();
         </div>
         
         <!-- Legenda -->
-        <div class="mt-6 flex gap-6 text-sm">
+        <div class="mt-6 flex flex-wrap gap-4 md:gap-6 text-sm">
             <div class="flex items-center">
                 <div class="w-4 h-4 bg-green-100 rounded mr-2"></div>
                 <span>Disponibile</span>
