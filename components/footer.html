@@ -1,0 +1,126 @@
+<!-- Footer -->
+<footer class="bg-darkGreen text-white">
+    <!-- Main Footer -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Brand -->
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
+                         alt="Nelle Tue Mani Logo" 
+                         class="w-14 h-14 rounded-full border-2 border-gold">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold">Nelle Tue Mani</h3>
+                        <p class="text-primary text-sm">Studio Onicotecnico</p>
+                    </div>
+                </div>
+                <p class="text-white/70 text-sm leading-relaxed mb-4">
+                    Le tue unghie perfette nelle tue mani. Professionalità, passione e creatività per donarti 
+                    unghie sempre impeccabili.
+                </p>
+                <div class="flex space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/393926144406" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-green-500 rounded-full flex items-center justify-center transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-serif text-lg font-bold mb-4 text-gold">Link Rapidi</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#home" class="text-white/70 hover:text-white transition-colors text-sm">Home</a>
+                    </li>
+                    <li>
+                        <a href="#servizi" class="text-white/70 hover:text-white transition-colors text-sm">Servizi</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="text-white/70 hover:text-white transition-colors text-sm">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#negozio" class="text-white/70 hover:text-white transition-colors text-sm">Negozio</a>
+                    </li>
+                    <li>
+                        <a href="#chi-siamo" class="text-white/70 hover:text-white transition-colors text-sm">Chi Sono</a>
+                    </li>
+                    <li>
+                        <a href="#contatti" class="text-white/70 hover:text-white transition-colors text-sm">Contatti</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h4 class="font-serif text-lg font-bold mb-4 text-gold">Contatti</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start text-white/70">
+                        <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                        <span>Via Sarzanese, 2413<br>55100 Lucca (LU)</span>
+                    </li>
+                    <li class="flex items-center text-white/70">
+                        <i class="fas fa-phone text-primary mr-3"></i>
+                        <a href="tel:+393926144406" class="hover:text-white transition-colors">392 614 4406</a>
+                    </li>
+                    <li class="flex items-center text-white/70">
+                        <i class="fas fa-clock text-primary mr-3"></i>
+                        <span>Lun-Gio: 09:30-19:00</span>
+                    </li>
+                    <li class="flex items-center text-white/70">
+                        <i class="fas fa-clock text-primary mr-3"></i>
+                        <span>Sab: 09:30-13:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <p class="text-white/50 text-sm">
+                        © <span id="current-year">2026</span> Nelle Tue Mani di Maria Rosaria Cavaliere P.iva 02742120468 - Studio Onicotecnico. Tutti i diritti riservati.
+                    </p>
+                </div>
+                <p class="text-white/50 text-sm">
+                    Realizzato con <i class="fas fa-heart text-primary mx-1"></i> a Lucca
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-primaryDark text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 transform translate-y-4 z-40">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+    // Back to top button
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+            backToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+            backToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Aggiorna anno automaticamente
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>

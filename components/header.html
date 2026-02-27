@@ -1,0 +1,74 @@
+<!-- Header -->
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3">
+                <img src="assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
+                     alt="Nelle Tue Mani Logo" 
+                     class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                <!-- Nome visibile solo su mobile -->
+                <div class="md:hidden" id="mobile-logo-text">
+                    <h3 class="font-serif text-xs font-bold text-white leading-tight">Nelle Tue Mani</h3>
+                    <p class="text-primary text-[10px] leading-tight">Studio Onicotecnico</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-white hover:text-gold font-medium transition-colors relative group">
+                    Home
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#servizi" class="text-white hover:text-gold font-medium transition-colors relative group">
+                    Servizi
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#portfolio" class="text-white hover:text-gold font-medium transition-colors relative group">
+                    Portfolio
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#negozio" class="text-white hover:text-gold font-medium transition-colors relative group">
+                    Negozio
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#chi-siamo" class="text-white hover:text-gold font-medium transition-colors relative group">
+                    Chi Sono
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contatti" class="px-6 py-2.5 bg-primary hover:bg-primaryDark text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-md">
+                    Contatti
+                </a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-white hover:text-gold transition-colors">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-md shadow-lg">
+        <div class="px-4 py-4 space-y-3">
+            <a href="#home" class="block px-4 py-3 text-white hover:text-gold hover:bg-white/10 rounded-lg font-medium transition-colors">
+                <i class="fas fa-home mr-3 w-5"></i>Home
+            </a>
+            <a href="#servizi" class="block px-4 py-3 text-white hover:text-gold hover:bg-white/10 rounded-lg font-medium transition-colors">
+                <i class="fas fa-hand-sparkles mr-3 w-5"></i>Servizi
+            </a>
+            <a href="#portfolio" class="block px-4 py-3 text-white hover:text-gold hover:bg-white/10 rounded-lg font-medium transition-colors">
+                <i class="fas fa-images mr-3 w-5"></i>Portfolio
+            </a>
+            <a href="#negozio" class="block px-4 py-3 text-white hover:text-gold hover:bg-white/10 rounded-lg font-medium transition-colors">
+                <i class="fas fa-store mr-3 w-5"></i>Negozio
+            </a>
+            <a href="#chi-siamo" class="block px-4 py-3 text-white hover:text-gold hover:bg-white/10 rounded-lg font-medium transition-colors">
+                <i class="fas fa-user mr-3 w-5"></i>Chi Sono
+            </a>
+            <a href="#contatti" class="block px-4 py-3 bg-primary hover:bg-primaryDark text-white rounded-lg font-medium text-center transition-colors">
+                <i class="fas fa-calendar-check mr-3"></i>Prenota Ora
+            </a>
+        </div>
+    </div>
+</header>

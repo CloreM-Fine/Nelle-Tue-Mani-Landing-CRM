@@ -1,0 +1,33 @@
+# Configurazione sensibile
+config.php
+
+# Database (backup locali)
+*.sql
+*.dump
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+admin/logs/
+
+# Dipendenze (se si usano composer/npm in futuro)
+node_modules/
+vendor/
+
+# File temporanei
+*.tmp
+*.temp
+.cache/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Uploads (se gestiti)
+uploads/
+assets/uploads/

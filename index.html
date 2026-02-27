@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nelle Tue Mani | Studio Onicotecnico Lucca</title>
+    <meta name="description" content="Studio Onicotecnico Nelle Tue Mani a Lucca. Ricostruzione unghie, gel, acrilico e nail art personalizzata. Le tue unghie perfette nelle tue mani.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Pannellum 360° Viewer CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Custom 360° Viewer Styles -->
+    <style>
+        /* Pannellum Customization */
+        #panorama-360 {
+            border-radius: 1rem;
+        }
+        
+        /* Personalizzazione controlli Pannellum */
+        .pnlm-controls-container {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .pnlm-zoom-controls,
+        .pnlm-fullscreen-toggle-button {
+            background-color: rgba(233, 30, 140, 0.9) !important;
+            border: none !important;
+        }
+        
+        .pnlm-zoom-controls:hover,
+        .pnlm-fullscreen-toggle-button:hover {
+            background-color: #c41873 !important;
+        }
+        
+        .pnlm-zoom-in,
+        .pnlm-zoom-out {
+            border-color: rgba(255,255,255,0.3) !important;
+        }
+        
+        /* Hotspot personalizzati */
+        .pnlm-hotspot {
+            width: 30px !important;
+            height: 30px !important;
+            background: rgba(233, 30, 140, 0.9) !important;
+            border: 2px solid white !important;
+            border-radius: 50% !important;
+            transition: transform 0.3s ease;
+        }
+        
+        .pnlm-hotspot:hover {
+            transform: scale(1.2);
+            background: #c41873 !important;
+        }
+        
+        /* Tooltip hotspot */
+        .pnlm-hotspot-tooltip {
+            background: rgba(26, 60, 39, 0.95) !important;
+            color: white !important;
+            padding: 8px 12px !important;
+            border-radius: 8px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 14px !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Titolo panorama - disabilitato per lasciare l'immagine pulita */
+        /* 
+        .pnlm-title-box {
+            background: rgba(26, 60, 39, 0.9) !important;
+            border-radius: 0 0 8px 8px !important;
+            padding: 10px 20px !important;
+        }
+        
+        .pnlm-title-box span {
+            color: white !important;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 18px !important;
+        }
+        */
+        /* Loading spinner */
+        .pnlm-load-box {
+            background: rgba(26, 60, 39, 0.95) !important;
+            border-radius: 12px !important;
+            padding: 30px !important;
+        }
+        
+        .pnlm-load-box p {
+            color: white !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+        
+        .pnlm-lbox {
+            border-color: #e91e8c !important;
+            border-top-color: transparent !important;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e91e8c',
+                        primaryDark: '#c41873',
+                        gold: '#d4af37',
+                        goldLight: '#f4c430',
+                        darkGreen: '#1a3c27',
+                        cream: '#fef9f5',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-700 bg-cream overflow-x-hidden">
+    
+    <!-- Header -->
+    <div id="header-container"></div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Background Video -->
+            <div class="absolute inset-0 z-0">
+                <video autoplay muted loop playsinline 
+                       class="w-full h-full object-cover"
+                       poster="assets/images/hero.jpg">
+                    <source src="assets/images/video-hero/video.mp4" type="video/mp4">
+                    <!-- Fallback image se il video non carica -->
+                    <img src="assets/images/hero.jpg" 
+                         alt="Studio Onicotecnico" 
+                         class="w-full h-full object-cover">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+            </div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <div class="hero-content opacity-0 translate-y-8">
+                    <div class="mb-8">
+                        <img src="assets/logo/526988232_17847756564535217_4050507715784280567_n.jpg" 
+                             alt="Nelle Tue Mani Logo" 
+                             class="w-40 h-40 md:w-56 md:h-56 mx-auto rounded-full shadow-2xl border-4 border-white/30">
+                    </div>
+                    <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-4 drop-shadow-lg">
+                        Nelle Tue Mani
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gold font-medium mb-2">Studio Onicotecnico</p>
+                    <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                        Le tue unghie perfette nelle tue mani
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contatti" class="px-8 py-4 bg-primary hover:bg-primaryDark text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Prenota Ora
+                        </a>
+                        <a href="#servizi" class="px-8 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-2 border-white/50 rounded-full font-medium transition-all duration-300">
+                            Scopri i Servizi
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#servizi" class="text-white/80 hover:text-white transition-colors">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Servizi Section -->
+        <section id="servizi" class="py-20 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-16 scroll-reveal">
+                    <span class="text-primary font-medium tracking-wider uppercase text-sm">Le Nostre Lavorazioni</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-darkGreen font-bold mt-2 mb-4">
+                        Servizi Professionali
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto"></div>
+                </div>
+                
+                <!-- Service 1: Ricostruzione -->
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20 scroll-reveal">
+                    <div class="order-2 md:order-1">
+                        <h3 class="font-serif text-3xl text-darkGreen font-bold mb-4">
+                            Ricostruzione Unghie
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Tecniche avanzate di ricostruzione unghie in <strong>gel e acrilico</strong> per donare forma, 
+                            resistenza e bellezza alle tue mani. Utilizziamo solo prodotti professionali di alta qualità 
+                            per garantire risultati duraturi e un aspetto naturale.
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-primary mr-3"></i>
+                                Gel UV/LED di ultima generazione
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-primary mr-3"></i>
+                                Acrilico per massima resistenza
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-primary mr-3"></i>
+                                Forme personalizzate (almond, coffin, stiletto)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2 relative group">
+                        <div class="absolute inset-0 bg-primary/20 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
+                        <img src="assets/images/ricostruzione.jpg" 
+                             alt="Ricostruzione unghie" 
+                             class="relative rounded-2xl shadow-xl w-full h-80 object-cover">
+                    </div>
+                </div>
+                
+                <!-- Service 2: Nail Art -->
+                <div class="grid md:grid-cols-2 gap-12 items-center scroll-reveal">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gold/20 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-6"></div>
+                        <img src="assets/images/nailart.jpg" 
+                             alt="Nail Art" 
+                             class="relative rounded-2xl shadow-xl w-full h-80 object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-3xl text-darkGreen font-bold mb-4">
+                            Nail Art Personalizzata
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Dalla nail art semplice ed elegante ai design più elaborati, ogni creazione è 
+                            <strong>unica e personalizzata</strong> per te. Maria Rosaria trasforma le tue idee in vere e 
+                            proprie opere d'arte sulle tue unghie.
+                        </p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                Decorazioni a mano libera
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                Applicazione strass e glitter
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-gold mr-3"></i>
+                                Nail art per occasioni speciali
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 md:py-32 bg-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-16 scroll-reveal">
+                    <span class="text-primary font-medium tracking-wider uppercase text-sm">I Nostri Lavori</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-darkGreen font-bold mt-2 mb-4">
+                        Portfolio
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto mb-4"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Alcuni dei nostri lavori recenti. Design unici creati da Maria Rosaria per clienti soddisfatte.
+                    </p>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Portfolio Item 1 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio1.jpeg" 
+                             alt="Nail art elegante" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Eleganza Naturale</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 2 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio5.jpeg" 
+                             alt="Ricostruzione gel" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Ricostruzione Gel</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 3 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio6.jpeg" 
+                             alt="Nail art colorata" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Colori Vivaci</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 4 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio2.jpeg" 
+                             alt="Nail art glitter" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Glitter & Glamour</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 5 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio3.jpeg" 
+                             alt="Nail art francese" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Francesina Moderna</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 6 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio4.jpeg" 
+                             alt="Nail art floreale" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Fiori Dipinti</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 7 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio7.jpeg" 
+                             alt="Nail art geometrica" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Geometrica</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Portfolio Item 8 -->
+                    <div class="portfolio-item group relative overflow-hidden rounded-xl cursor-pointer scroll-reveal">
+                        <img src="assets/images/portfolio8.jpeg" 
+                             alt="Nail art minimal" 
+                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkGreen/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white font-medium">Minimal Chic</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-gray-500 text-sm mt-8">
+                    <i class="fas fa-camera mr-2"></i>
+                    Galleria dei nostri lavori
+                </p>
+            </div>
+        </section>
+        
+        <!-- Negozio 360° Section -->
+        <section id="negozio" class="py-20 md:py-32 bg-darkGreen text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-12 scroll-reveal">
+                    <span class="text-gold font-medium tracking-wider uppercase text-sm">Tour Virtuale</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white font-bold mt-2 mb-4">
+                        Il Nostro Negozio
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto mb-4"></div>
+                    <p class="text-white/80 max-w-2xl mx-auto">
+                        Esplora il nostro studio in 360°. Trascina per muoverti, usa la rotella o il pinch per zoomare.
+                    </p>
+                </div>
+                
+                <!-- 360° Viewer Container -->
+                <div class="scroll-reveal">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <!-- Pannellum Container -->
+                        <div id="panorama-360" class="w-full h-[400px] md:h-[500px] lg:h-[600px]"></div>
+                    </div>
+                    
+                    <!-- Info Note -->
+                    <div class="mt-6 flex flex-wrap justify-center gap-6 text-white/70 text-sm">
+                        <span class="flex items-center">
+                            <i class="fas fa-mouse text-gold mr-2"></i>
+                            Drag o frecce per muoverti
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-search-plus text-gold mr-2"></i>
+                            Scroll per zoomare
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-mobile-alt text-gold mr-2"></i>
+                            Touch e pinch su mobile
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chi Sono Section -->
+        <section id="chi-siamo" class="py-20 md:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-16 scroll-reveal">
+                    <span class="text-primary font-medium tracking-wider uppercase text-sm">Conosciamoci</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-darkGreen font-bold mt-2 mb-4">
+                        Chi Sono
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Owner Photo -->
+                    <div class="scroll-reveal">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-primary/10 rounded-2xl transform rotate-2"></div>
+                            <img src="assets/images/maria-rosaria.jpg" 
+                                 alt="Maria Rosaria - Onicotecnica" 
+                                 class="relative rounded-2xl shadow-xl w-full h-96 object-cover">
+                            <div class="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6 max-w-xs">
+                                <p class="font-serif text-xl text-darkGreen font-bold">Maria Rosaria</p>
+                                <p class="text-primary font-medium">Onicotecnica Professionista</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bio -->
+                    <div class="scroll-reveal">
+                        <h3 class="font-serif text-3xl text-darkGreen font-bold mb-6">
+                            La passione per la bellezza delle tue mani
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Lo Studio <strong>"Nelle Tue Mani"</strong> è guidato da Maria Rosaria, onicotecnica professionista 
+                            con anni di esperienza nel settore. La sua passione per l'onicotecnica nasce dalla volontà di 
+                            far sentire ogni donna speciale, curando ogni dettaglio con precisione e creatività.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Formazione specializzata e costanti aggiornamenti sulle ultime tendenze garantiscono 
+                            servizi di altissima qualità. Ogni cliente viene seguita con attenzione personalizzata, 
+                            perché le tue unghie meritano il meglio.
+                        </p>
+                        
+                        <!-- Certifications -->
+                        <div class="bg-cream rounded-xl p-6">
+                            <h4 class="font-serif text-xl text-darkGreen font-bold mb-4">
+                                <i class="fas fa-certificate text-gold mr-2"></i>
+                                Certificazioni
+                            </h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-award text-primary mr-2"></i>
+                                    <span>Master Gel & Acrilico</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-award text-primary mr-2"></i>
+                                    <span>Nail Art Avanzata</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-award text-primary mr-2"></i>
+                                    <span>Ricostruzione Professionale</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-award text-primary mr-2"></i>
+                                    <span>Formazione Continua</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contatti Section -->
+        <section id="contatti" class="py-20 md:py-32 bg-darkGreen text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center mb-16 scroll-reveal">
+                    <span class="text-gold font-medium tracking-wider uppercase text-sm">Resta in Contatto</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white font-bold mt-2 mb-4">
+                        Contatti
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="scroll-reveal">
+                        <h3 class="font-serif text-2xl font-bold mb-8 text-center md:text-left">Vieni a Trovarci</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-lg">Indirizzo</p>
+                                    <p class="text-white/80">Via Sarzanese, 2413<br>55100 Lucca (LU)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-lg">Telefono</p>
+                                    <a href="tel:+393926144406" class="text-white/80 hover:text-gold transition-colors">
+                                        392 614 4406
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4 flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-lg">WhatsApp</p>
+                                    <a href="https://wa.me/393926144406" target="_blank" class="text-white/80 hover:text-gold transition-colors">
+                                        Scrivimi su WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-lg">Orari di Apertura</p>
+                                    <div class="text-white/80 space-y-1">
+                                        <p><span class="text-gold">Lun-Gio:</span> 09:30 - 19:00</p>
+                                        <p><span class="text-gold">Venerdì:</span> 09:30 - 19:00</p>
+                                        <p><span class="text-gold">Sabato:</span> 09:30 - 13:00</p>
+                                        <p><span class="text-red-400">Domenica:</span> Chiuso</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="mt-10 text-center md:text-left">
+                            <p class="font-medium text-lg mb-4">Seguici su</p>
+                            <div class="flex justify-center md:justify-start space-x-4">
+                                <a href="#" class="w-12 h-12 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-tiktok text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="scroll-reveal">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                            <h3 class="font-serif text-2xl font-bold mb-6">Prenota il Tuo Appuntamento</h3>
+                            <form id="contactForm" class="space-y-5">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium mb-2">Nome e Cognome *</label>
+                                        <input type="text" id="name" name="name" required
+                                               class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white placeholder-white/50 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="block text-sm font-medium mb-2">Telefono *</label>
+                                        <input type="tel" id="phone" name="phone" required
+                                               class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white placeholder-white/50 transition-colors">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email"
+                                           class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white placeholder-white/50 transition-colors">
+                                </div>
+                                
+                                <div>
+                                    <label for="service" class="block text-sm font-medium mb-2">Servizio Richiesto *</label>
+                                    <select id="service" name="service" required
+                                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white transition-colors">
+                                        <option value="" class="text-gray-700">Seleziona un servizio</option>
+                                        <option value="ricostruzione" class="text-gray-700">Ricostruzione Unghie</option>
+                                        <option value="gel" class="text-gray-700">Ricostruzione Gel</option>
+                                        <option value="acrilico" class="text-gray-700">Ricostruzione Acrilico</option>
+                                        <option value="nailart" class="text-gray-700">Nail Art</option>
+                                        <option value="manicure" class="text-gray-700">Manicure</option>
+                                        <option value="altro" class="text-gray-700">Altro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="date" class="block text-sm font-medium mb-2">Data Preferita *</label>
+                                        <input type="date" id="date" name="date" required min=""
+                                               class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white transition-colors">
+                                    </div>
+                                    <div>
+                                        <label for="time" class="block text-sm font-medium mb-2">Orario Preferito *</label>
+                                        <select id="time" name="time" required
+                                                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white transition-colors">
+                                            <option value="" class="text-gray-700">Seleziona orario</option>
+                                            <optgroup label="Mattina" class="text-gray-700">
+                                                <option value="09:30" class="text-gray-700">09:30</option>
+                                                <option value="10:00" class="text-gray-700">10:00</option>
+                                                <option value="10:30" class="text-gray-700">10:30</option>
+                                                <option value="11:00" class="text-gray-700">11:00</option>
+                                                <option value="11:30" class="text-gray-700">11:30</option>
+                                                <option value="12:00" class="text-gray-700">12:00</option>
+                                                <option value="12:30" class="text-gray-700">12:30</option>
+                                            </optgroup>
+                                            <optgroup label="Pomeriggio" class="text-gray-700">
+                                                <option value="15:00" class="text-gray-700">15:00</option>
+                                                <option value="15:30" class="text-gray-700">15:30</option>
+                                                <option value="16:00" class="text-gray-700">16:00</option>
+                                                <option value="16:30" class="text-gray-700">16:30</option>
+                                                <option value="17:00" class="text-gray-700">17:00</option>
+                                                <option value="17:30" class="text-gray-700">17:30</option>
+                                                <option value="18:00" class="text-gray-700">18:00</option>
+                                                <option value="18:30" class="text-gray-700">18:30</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium mb-2">Note Aggiuntive</label>
+                                    <textarea id="message" name="message" rows="3" 
+                                              placeholder="Richieste particolari, allergie, preferenze..."
+                                              class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-primary text-white placeholder-white/50 transition-colors resize-none"></textarea>
+                                </div>
+                                
+                                <!-- Privacy Checkbox -->
+                                <div class="flex items-start">
+                                    <input type="checkbox" id="privacy" name="privacy" required
+                                           class="mt-1 w-4 h-4 text-primary bg-white/10 border-white/20 rounded focus:ring-primary">
+                                    <label for="privacy" class="ml-3 text-sm text-white/80">
+                                        Acconsento al trattamento dei miei dati personali ai sensi del GDPR. 
+                                        <a href="privacy-policy.html" target="_blank" class="text-gold hover:underline">Leggi la Privacy Policy</a>
+                                    </label>
+                                </div>
+                                
+                                <input type="text" name="_gotcha" style="display:none">
+                                <input type="hidden" name="_subject" value="Nuova richiesta di prenotazione - Nelle Tue Mani">
+                                <input type="hidden" name="_template" value="table">
+                                
+                                <button type="submit" 
+                                        class="w-full py-4 bg-primary hover:bg-primaryDark text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                                    <i class="fas fa-paper-plane mr-2"></i>Invia Richiesta
+                                </button>
+                                
+                                <p class="text-white/50 text-xs text-center">
+                                    * Campi obbligatori
+                                </p>
+                            </form>
+                            
+                            <!-- Note -->
+                            <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                                <p class="text-white/70 text-sm text-center">
+                                    <i class="fas fa-info-circle text-gold mr-2"></i>
+                                    Ti contatterò al più presto per confermare la tua prenotazione.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps -->
+                <div class="mt-16 scroll-reveal">
+                    <div class="rounded-2xl overflow-hidden h-80 shadow-2xl">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.775!2d10.494!3d43.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d5839779f02bb3%3A0x41de3dc0fa1831f4!2sVia%20Sarzanese%2C%202413%2C%2055100%20Lucca%20LU!5e0!3m2!1sit!2sit!4v1707926400000!5m2!1sit!2sit"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Cookie Banner -->
+    <div id="cookie-banner-container"></div>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    
+    <!-- Pannellum 360° Viewer JS -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script src="js/pannellum-config.js"></script>
+    <script>
+        // Load Header, Footer and Cookie Banner
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                initHeader();
+            });
+            
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+            
+        fetch('components/cookie-banner.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cookie-banner-container').innerHTML = data;
+                // Execute cookie banner scripts
+                const scripts = document.getElementById('cookie-banner-container').querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript);
+                });
+            });
+            
+        // Initialize header functionality
+        function initHeader() {
+            const header = document.getElementById('main-header');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Header scroll effect
+            const navLinks = header.querySelectorAll('nav a:not(.bg-primary)');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileLogoTitle = document.querySelector('#mobile-logo-text h3');
+            const mobileLogoSubtitle = document.querySelector('#mobile-logo-text p');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    header.classList.remove('bg-transparent');
+                    // Cambia scritte in scuro quando header è bianco
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-darkGreen');
+                    });
+                    mobileBtn.classList.remove('text-white');
+                    mobileBtn.classList.add('text-darkGreen');
+                    // Logo mobile: titolo rosa, sottotitolo nero
+                    if (mobileLogoTitle) {
+                        mobileLogoTitle.classList.remove('text-white');
+                        mobileLogoTitle.classList.add('text-primary');
+                    }
+                    if (mobileLogoSubtitle) {
+                        mobileLogoSubtitle.classList.remove('text-primary');
+                        mobileLogoSubtitle.classList.add('text-darkGreen');
+                    }
+                } else {
+                    header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    header.classList.add('bg-transparent');
+                    // Torna a scritte bianche quando header è trasparente
+                    navLinks.forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-darkGreen');
+                    });
+                    mobileBtn.classList.add('text-white');
+                    mobileBtn.classList.remove('text-darkGreen');
+                    // Logo mobile: tutto bianco
+                    if (mobileLogoTitle) {
+                        mobileLogoTitle.classList.add('text-white');
+                        mobileLogoTitle.classList.remove('text-primary');
+                    }
+                    if (mobileLogoSubtitle) {
+                        mobileLogoSubtitle.classList.add('text-primary');
+                        mobileLogoSubtitle.classList.remove('text-darkGreen');
+                    }
+                }
+            });
+            
+            // Mobile menu toggle
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu on link click
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        }
+        
+        // Form submission - Configurato con API interne
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            // Imposta la data minima a oggi
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+        
+        // Carica orari disponibili quando cambia la data
+        const timeSelect = document.getElementById('time');
+        if (dateInput && timeSelect) {
+            dateInput.addEventListener('change', async function() {
+                const data = this.value;
+                if (!data) return;
+                
+                timeSelect.innerHTML = '<option value="">Caricamento...</option>';
+                timeSelect.disabled = true;
+                
+                try {
+                    const response = await fetch(`admin/api/disponibilita.php?data=${data}`);
+                    const result = await response.json();
+                    
+                    if (result.success && result.orari.length > 0) {
+                        let html = '<option value="">Seleziona orario</option>';
+                        
+                        // Organizza per fascia oraria
+                        const mattina = result.orari.filter(o => o < '15:00');
+                        const pomeriggio = result.orari.filter(o => o >= '15:00');
+                        
+                        if (mattina.length > 0) {
+                            html += '<optgroup label="Mattina" class="text-gray-700">';
+                            mattina.forEach(ora => {
+                                html += `<option value="${ora}" class="text-gray-700">${ora}</option>`;
+                            });
+                            html += '</optgroup>';
+                        }
+                        
+                        if (pomeriggio.length > 0) {
+                            html += '<optgroup label="Pomeriggio" class="text-gray-700">';
+                            pomeriggio.forEach(ora => {
+                                html += `<option value="${ora}" class="text-gray-700">${ora}</option>`;
+                            });
+                            html += '</optgroup>';
+                        }
+                        
+                        timeSelect.innerHTML = html;
+                    } else {
+                        timeSelect.innerHTML = '<option value="">Nessun orario disponibile</option>';
+                    }
+                } catch (error) {
+                    console.error('Errore caricamento orari:', error);
+                    timeSelect.innerHTML = '<option value="">Errore caricamento</option>';
+                }
+                
+                timeSelect.disabled = false;
+            });
+        }
+        
+        // Gestione submit form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Invio in corso...';
+                submitBtn.disabled = true;
+                
+                const formData = new FormData(this);
+                
+                try {
+                    const response = await fetch('admin/api/salva-prenotazione.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert(result.message);
+                        this.reset();
+                        timeSelect.innerHTML = '<option value="">Seleziona prima la data</option>';
+                    } else {
+                        alert('Errore: ' + (result.error || 'Si è verificato un errore'));
+                    }
+                } catch (error) {
+                    console.error('Errore invio:', error);
+                    alert('Errore di connessione. Riprova più tardi.');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
